@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Fire - Poppy Playtime Chapters</title>
+    <style>
+        /* Sayfa genel stil ayarları */
+        body {
+            margin: 0;
+            background: linear-gradient(45deg, #ff007f, #00ffff); /* Neon Gradient arka plan */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Başlık stili */
+        h1 {
+            font-size: 80px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 0, 255, 1), 0 0 30px rgba(0, 255, 255, 0.6);
+            animation: glow 2s ease-in-out infinite alternate;
+            margin-bottom: 60px; /* Başlık ile buton arasındaki mesafeyi artırdık */
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 0, 255, 1), 0 0 60px rgba(0, 255, 255, 0.9);
+            }
+        }
+
+        /* Başlangıç butonu */
+        .start-button {
+            padding: 20px 40px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #000;
+            background: #ff0000; /* Kırmızı */
+            border: 2px solid #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            transition: all 0.4s ease-in-out;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 70px;
+            border-radius: 50px;
+        }
+
+        /* Hover efekti */
+        .start-button:hover {
+            background: #ff3300;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        /* Kayarak gelen 3 buton */
+        .button-container {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: all 0.5s ease-out;
+            justify-content: center;
+        }
+
+        .button-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3 butonun sade ve şık stili */
+        .animated-button {
+            width: 350px;
+            height: 120px;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: #333;
+            border: 3px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .animated-button:hover {
+            transform: scale(1.1);
+            background: #444;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.6), 0 0 50px rgba(0, 255, 255, 0.6);
+        }
+
+        /* Video arka plan */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3; /* Videoyu biraz şeffaf yapalım */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Arka plan videosu -->
+    <video autoplay muted loop class="background-video">
+        <source src="https://www.example.com/background-video.mp4" type="video/mp4">
+        <!-- Buraya gerçek bir video URL'si koymalısınız -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Başlık -->
+    <h1>Game Fire</h1>
+
+    <!-- Poppy Playtime İndirme Butonu -->
+    <button class="start-button" onclick="showButtons()">Poppy Playtime İndirmek İçin Tıkla</button>
+
+    <!-- Kayarak Gelen Butonlar -->
+    <div class="button-container" id="button-container">
+        <button class="animated-button">Poppy Playtime Chapter 1</button>
+        <button class="animated-button">Poppy Playtime Chapter 2</button>
+        <button class="animated-button">Poppy Playtime Chapter 3</button>
+    </div>
+
+    <script>
+        // Butonları göstermek için kullanılan fonksiyon
+        function showButtons() {
+            document.getElementById('button-container').classList.add('show');
+        }
+    </script>
+
+</body>
+</html>
+
